@@ -1,0 +1,1 @@
+Image is a 2D array.
