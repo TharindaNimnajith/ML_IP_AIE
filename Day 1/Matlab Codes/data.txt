@@ -1,0 +1,4 @@
+maths,30
+bio,20
+commerce,10
+art,40
