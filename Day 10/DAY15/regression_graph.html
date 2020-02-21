@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.2"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	</head>
+
+	<body>
+		x:<input type="text" id ="x" />
+		y:<input type="text" id="y" />
+
+		<input type="button" id="append" value="submit">
+		
+		<div style="padding:50px">
+			<canvas id="chart" width="600" height="300">
+			</canvas>
+		<script>
+			
+			const model=tf.sequential();
+			model.add(tf.layers.leakyReLU({units:128,inputShape:[1]}));
+			model.add(tf.layers.leakyReLU({units:128,inputShape:[128]}));
+			model.add(tf.layers.dense({units:1,inputShape:[128]}));
+			model.compile({loss:'meanSquaredError',optimizer:'adam'});
+
+			var data=[]
+			var targets=[]
+			var bestfit=[]
+
+			document.getElementById("append").onclick=function(){
+
+				var x=document.getElementById("x").value;
+				var y=document.getElementById("y").value;
+
+				data.push(x);
+				targets.push(y);
+
+				model.fit(tf.tensor(data),tf.tensor(targets),{epochs:150}).then(()=>{
+					bestfit=model.predict(tf.tensor(data,[data.length,1])).dataSync();
+
+					var cnv=document.getElementById("chart").getContext('2d');
+					
+					var Rchart=new Chart(cnv,{type:'line',data:{labels:data,datasets:[
+						{ 	label:'Original Data',
+							data: targets, boderWidth:1,
+						},{
+							label:'best Fit Line',
+							data:bestfit,
+							boderWidth:1,
+							boderColor:'#f44242',
+							backgroundColor: '#4248f4'
+							},]
+
+						},
+					});
+				});
+			}
+
+		</script>
+	</body>
+
+</html>
