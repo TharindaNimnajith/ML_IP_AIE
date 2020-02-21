@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>ML5 CLASSIFIER</title>
+		<script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js"></script>
+	</head>
+
+	<body>
+		<h1>IMAGE CLASSIFICATION USING MOBILE NET</h1>
+		<img src="https://i.kinja-img.com/gawker-media/image/upload/s--HqfzgkTd--/c_scale,f_auto,fl_progressive,q_80,w_800/wp2qinp6fu0d8guhex9v.jpg" id="img" crossorigin="anonymous" width="400">
+		
+		<p>PREDICTION: <span id="res">...</span></p>
+		<p>PROBABILITY: <span id="prob">...</span></p>
+	</body>
+
+	<script>
+		const image=document.getElementById('img');
+		const result=document.getElementById('res');
+		const probability=document.getElementById('prob');
+
+		const classifier=ml5.imageClassifier('MobileNet',function(){console.log('Model_Loded')});
+
+		classifier.predict(image,function(err,prediction){
+			result.innerText=prediction[0].className;
+			probability.innerText=prediction[0].probability.toFixed(4);
+		});
+
+	</script>
+
+</html>
