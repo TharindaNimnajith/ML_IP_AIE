@@ -1,0 +1,77 @@
+Artificial Intelligence (AI)
+Machine Learning (ML)
+Deep Learning
+Google Deep Mind
+Image Processing (IP)
+Robotics
+Object Detection
+Natural Language Processing
+AI is not only Robots
+TensorFlow - An Open Source Machine Learning Framework (Object Detection API)
+Data Science
+Automated Vehicles
+Algorithms
+Classifiers
+Features
+Labels
+Data Sets
+Neural Networks
+Python
+OpenCV
+Linear 
+scikit learn
+numpy
+scipy
+matplotlib
+
+Iris flower data set : Classification Problem
+				       Features : Sepal length, Sepal width, Petal length, Petal width (4 Features)
+					   Data     : All the values of features in the sample (4 * 150 = 600 data) { 2D Array -> data[150][4] }
+					   Labels   : Setosa, Virginica, Versicolor (3 Labels)
+					   Targets  : No of samples / All the values in the labels (150 targets) { 1D Array -> targets[150] }
+
+
+ML Categories:
+
+     Supervised ML 	 	 ->  Label is given
+			     	         Accuracy is higher
+
+     Unsupervised ML  	 ->  Label is not given
+			     		  	 Categorizing / Clustoring into Classes
+			     		  	 Letting the machine to predict the number of labels
+			    		  	 Self-Learning
+			     		   	 More Intelligent
+
+     Semi-Supervised ML  ->  Using both labeled & unlabeled data sets
+
+
+
+ML Problems:
+
+     Classification   ->  Discrete Values
+
+     Regression 	  ->  Continuous Values
+
+
+
+		 	Features & Labels
+
+		            (Training)
+
+Features  ->  (Testing)  ->  Classifier  ->  (Result)  ->  Label
+
+
+
+cmd -->
+
+pip install numpy
+pip install scipy
+pip install matplotlib
+pip install sklearn
+python
+import numpy
+import scipy
+ctrl + Z
+pip -V
+python -m pip install --upgrade pip
+pip install opencv_python-3.4.0-cp36-cp36m-win_amd64.whl
